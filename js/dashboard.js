@@ -177,17 +177,6 @@ function renderDetalle(n, periodo) {
       `<tr><td>${escapeHtml(d.label)}</td><td class="r">${money(d.valor)}</td></tr>`).join("") || filaVacia(2)}</tbody>
     <tfoot><tr><td class="r b">Total deducciones</td><td class="r b">${money(tDed)}</td></tr></tfoot>`;
 
-  const prest = [
-    ["Cesantías", n.cesantias], ["Intereses cesantías", n.intereses],
-    ["Primas", n.primas], ["Vacaciones", n.vacacionesPrestacion],
-    ["EPS", n.eps], ["AFP", n.afp], ["ARL", n.arl],
-    ["Caja de compensación", n.caja], ["ICBF", n.icbf], ["SENA", n.sena],
-    ["IBC", n.ibc], ["Base prestaciones", n.basePs], ["IBC salud/pensión", n.ibcSaludPensionCorte],
-  ];
-  $("#tabla-prestaciones").innerHTML = `
-    <tbody>${prest.map(([k, v]) =>
-      `<tr><td>${escapeHtml(k)}</td><td class="r">${money(v)}</td></tr>`).join("")}</tbody>`;
-
   $("#comprobante-preview").innerHTML = comprobanteHTML(n, {
     nombre: periodo.nombre, fechaPago: periodo.fechaPago,
   });

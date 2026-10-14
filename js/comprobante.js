@@ -169,29 +169,6 @@ export function comprobanteHTML(nomina, periodo = {}) {
       </tr>
     </table>
 
-    <div style="border-top:1px dashed #cbd5e1;padding-top:12px;">
-      <div style="font-size:12px;font-weight:700;margin-bottom:6px;">Información prestaciones sociales y aportes</div>
-      <table style="width:100%;border-collapse:collapse;font-size:11px;">
-        <tbody>
-          <tr>
-            <td style="padding:3px 6px;color:#64748b;">Cesantías</td><td style="padding:3px 6px;text-align:right;">${money(n.cesantias)}</td>
-            <td style="padding:3px 6px;color:#64748b;">Intereses</td><td style="padding:3px 6px;text-align:right;">${money(n.intereses)}</td>
-            <td style="padding:3px 6px;color:#64748b;">Primas</td><td style="padding:3px 6px;text-align:right;">${money(n.primas)}</td>
-          </tr>
-          <tr>
-            <td style="padding:3px 6px;color:#64748b;">Vacaciones</td><td style="padding:3px 6px;text-align:right;">${money(n.vacacionesPrestacion)}</td>
-            <td style="padding:3px 6px;color:#64748b;">EPS</td><td style="padding:3px 6px;text-align:right;">${money(n.eps)}</td>
-            <td style="padding:3px 6px;color:#64748b;">AFP</td><td style="padding:3px 6px;text-align:right;">${money(n.afp)}</td>
-          </tr>
-          <tr>
-            <td style="padding:3px 6px;color:#64748b;">ARL</td><td style="padding:3px 6px;text-align:right;">${money(n.arl)}</td>
-            <td style="padding:3px 6px;color:#64748b;">Caja</td><td style="padding:3px 6px;text-align:right;">${money(n.caja)}</td>
-            <td style="padding:3px 6px;color:#64748b;">ICBF / SENA</td><td style="padding:3px 6px;text-align:right;">${money((+n.icbf||0)+(+n.sena||0))}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
     ${n.notas ? `<div style="margin-top:12px;font-size:11px;background:#fef3c7;border-radius:8px;padding:8px 10px;"><b>Notas:</b> ${escapeHtml(n.notas)}</div>` : ""}
 
     <div style="margin-top:18px;font-size:10px;color:#94a3b8;text-align:center;border-top:1px solid #e2e8f0;padding-top:10px;">
