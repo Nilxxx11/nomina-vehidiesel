@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mi comprobante · Nómina Vehidiesel</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚚</text></svg>">
+<link rel="stylesheet" href="css/styles.css">
+<script src="assets/vendor/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-brand">
+    <img src="assets/logo_vehidiesel.png" alt="Vehidiesel">
+    <div>
+      <strong>Nómina Vehidiesel</strong>
+      <span>Comprobantes de pago</span>
+    </div>
+  </div>
+  <div class="topbar-right">
+    <a href="admin.html" id="link-admin" class="btn ghost sm hidden">⚙️ Administración</a>
+    <div class="user-chip">
+      <span class="avatar" id="user-initials">?</span>
+      <div class="user-meta">
+        <b id="user-name">—</b>
+        <span id="user-cedula">—</span>
+      </div>
+    </div>
+    <button class="btn ghost sm" id="btn-logout">Salir</button>
+  </div>
+</header>
+
+<main class="page">
+
+  <section class="panel bar">
+    <div>
+      <label class="inline-label">Periodo de nómina
+        <select id="sel-periodo"><option value="">Cargando…</option></select>
+      </label>
+    </div>
+    <div class="bar-actions">
+      <button class="btn ghost" id="btn-ver-detalle">Ver detalle</button>
+      <button class="btn primary" id="btn-descargar" disabled>⬇ Descargar comprobante</button>
+    </div>
+  </section>
+
+  <div id="estado" class="empty">
+    <span class="big">⏳</span>
+    <p>Cargando información…</p>
+  </div>
+
+  <section id="detalle" class="hidden">
+    <div class="panel">
+      <h3>Resumen del periodo</h3>
+      <div class="metrics" id="metrics"></div>
+    </div>
+
+    <div class="detalle-grid">
+      <div class="panel">
+        <h3>Devengos</h3>
+        <div class="table-wrap"><table class="tbl det" id="tabla-devengos"></table></div>
+      </div>
+      <div class="panel">
+        <h3>Deducciones</h3>
+        <div class="table-wrap"><table class="tbl det" id="tabla-deducciones"></table></div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3>Prestaciones y aportes</h3>
+      <div class="table-wrap"><table class="tbl det" id="tabla-prestaciones"></table></div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <h3>Vista previa del comprobante</h3>
+        <button class="btn ghost sm" id="btn-descargar2">⬇ Descargar PDF</button>
+      </div>
+      <div class="comprobante-scroll"><div id="comprobante-preview"></div></div>
+    </div>
+  </section>
+
+</main>
+
+<script type="module" src="js/dashboard.js"></script>
+</body>
+</html>

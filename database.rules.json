@@ -1,0 +1,34 @@
+{
+  "rules": {
+    "usuarios": {
+      "$uid": {
+        ".read": "auth != null && (auth.uid === $uid || root.child('admins').child(auth.uid).val() === true)",
+        ".write": "auth != null && auth.uid === $uid",
+        ".validate": "newData.hasChildren(['email', 'nombre', 'cedula'])"
+      }
+    },
+    "admins": {
+      "$uid": {
+        ".read": "auth != null && (auth.uid === $uid || root.child('admins').child(auth.uid).val() === true)",
+        ".write": "auth != null && root.child('admins').child(auth.uid).val() === true"
+      }
+    },
+    "periodos": {
+      ".read": "auth != null",
+      ".write": "auth != null && root.child('admins').child(auth.uid).val() === true"
+    },
+    "nominas": {
+      ".write": "auth != null && root.child('admins').child(auth.uid).val() === true",
+      "$periodo": {
+        ".read": "auth != null && root.child('admins').child(auth.uid).val() === true",
+        "$cedula": {
+          ".read": "auth != null && (root.child('usuarios').child(auth.uid).child('cedula').val() === $cedula || root.child('admins').child(auth.uid).val() === true)"
+        }
+      }
+    },
+    "empleados": {
+      ".read": "auth != null",
+      ".write": "auth != null && root.child('admins').child(auth.uid).val() === true"
+    }
+  }
+}

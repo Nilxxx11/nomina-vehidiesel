@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Administración · Nómina Vehidiesel</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>">
+<link rel="stylesheet" href="css/styles.css">
+<script src="assets/vendor/xlsx.full.min.js"></script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-brand">
+    <img src="assets/logo_vehidiesel.png" alt="Vehidiesel">
+    <div>
+      <strong>Administración de nómina</strong>
+      <span>VEHIDIESEL S.A.S.</span>
+    </div>
+  </div>
+  <div class="topbar-right">
+    <a href="dashboard.html" class="btn ghost sm">Mi comprobante</a>
+    <button class="btn ghost sm" id="btn-logout">Salir</button>
+  </div>
+</header>
+
+<main class="page" id="admin-page">
+
+  <div id="guard" class="empty">
+    <span class="big">🔒</span>
+    <p>Verificando permisos…</p>
+  </div>
+
+  <div id="admin-content" class="hidden">
+
+    <section class="panel">
+      <h3>1 · Cargar archivo de nómina (.xlsx)</h3>
+      <p class="muted">Sube el libro mensual. Se leerá la hoja <b>OCT 2026</b> (o la primera disponible) usando la estructura de columnas A..CA.</p>
+
+      <div class="upload-grid">
+        <label class="file-drop" id="drop">
+          <input type="file" id="file-xlsx" accept=".xlsx,.xls" hidden>
+          <span class="big">📄</span>
+          <b id="file-name">Haz clic o arrastra el archivo aquí</b>
+          <span class="muted">Formatos: .xlsx / .xls</span>
+        </label>
+
+        <div class="upload-fields">
+          <label class="inline-label">Hoja
+            <select id="sel-hoja" disabled><option value="">—</option></select>
+          </label>
+          <label class="inline-label">Periodo (etiqueta)
+            <input type="text" id="periodo-nombre" placeholder="Ej: OCTUBRE 2026">
+          </label>
+          <label class="inline-label">Fecha de pago
+            <input type="date" id="periodo-fecha">
+          </label>
+        </div>
+      </div>
+
+      <div class="bar-actions">
+        <button class="btn ghost" id="btn-analizar" disabled>Analizar archivo</button>
+        <button class="btn primary" id="btn-cargar" disabled>Cargar a Firebase</button>
+      </div>
+    </section>
+
+    <section class="panel hidden" id="panel-preview">
+      <div class="panel-head">
+        <h3>2 · Previsualización</h3>
+        <span class="badge" id="preview-meta">—</span>
+      </div>
+      <div class="table-wrap tall">
+        <table class="tbl" id="tabla-preview"></table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <h3>Periodos cargados</h3>
+        <button class="btn ghost sm" id="btn-refresh">↻ Actualizar</button>
+      </div>
+      <div class="table-wrap"><table class="tbl" id="tabla-periodos"></table></div>
+    </section>
+
+  </div>
+</main>
+
+<script type="module" src="js/admin.js"></script>
+</body>
+</html>

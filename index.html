@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nómina Vehidiesel · Acceso</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚚</text></svg>">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="auth-body">
+
+<main class="auth-wrap">
+  <section class="auth-card">
+    <div class="auth-brand">
+      <img src="assets/logo_vehidiesel.png" alt="Vehidiesel">
+      <div>
+        <h1>Nómina Vehidiesel</h1>
+        <span>Comprobantes de pago en línea</span>
+      </div>
+    </div>
+
+    <div class="tabs" role="tablist">
+      <button class="tab active" data-tab="login" role="tab">Iniciar sesión</button>
+      <button class="tab" data-tab="register" role="tab">Registrarse</button>
+    </div>
+
+    <!-- LOGIN -->
+    <form id="form-login" class="auth-form" autocomplete="on">
+      <label>
+        <span>Correo electrónico</span>
+        <input type="email" id="login-email" required placeholder="tucorreo@ejemplo.com">
+      </label>
+      <label>
+        <span>Contraseña</span>
+        <input type="password" id="login-password" required placeholder="Tu contraseña">
+      </label>
+      <button type="submit" class="btn primary block" id="btn-login">Ingresar</button>
+      <p class="hint">¿Olvidaste tu contraseña? Escríbenos a <b>rrhh@vehidiesel.com.co</b></p>
+    </form>
+
+    <!-- REGISTRO -->
+    <form id="form-register" class="auth-form hidden" autocomplete="on">
+      <label>
+        <span>Nombre completo</span>
+        <input type="text" id="reg-nombre" required placeholder="Nombres y apellidos">
+      </label>
+      <label>
+        <span>Número de cédula</span>
+        <input type="text" id="reg-cedula" inputmode="numeric" required placeholder="Sin puntos ni espacios">
+      </label>
+      <label>
+        <span>Correo electrónico</span>
+        <input type="email" id="reg-email" required placeholder="tucorreo@ejemplo.com">
+      </label>
+      <div class="row2">
+        <label>
+          <span>Contraseña</span>
+          <input type="password" id="reg-password" required minlength="6" placeholder="Mínimo 6 caracteres">
+        </label>
+        <label>
+          <span>Confirmar contraseña</span>
+          <input type="password" id="reg-password2" required minlength="6" placeholder="Repite la contraseña">
+        </label>
+      </div>
+      <button type="submit" class="btn primary block" id="btn-register">Crear mi cuenta</button>
+      <p class="hint">Regístrate con tu número de cédula para ver y descargar tu comprobante.</p>
+    </form>
+
+    <p class="auth-foot">VEHIDIESEL S.A.S. · NIT 890.113.554-3</p>
+  </section>
+</main>
+
+<script type="module" src="js/auth.js"></script>
+</body>
+</html>
